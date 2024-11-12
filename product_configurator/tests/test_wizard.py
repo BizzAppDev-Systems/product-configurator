@@ -340,12 +340,12 @@ class ConfigurationWizard(ProductConfiguratorTestCases):
             wizard_id=product_config_wizard_1.id
         ).fields_get()
 
-    def test_13_fields_view_get(self):
+    def test_13_get_view(self):
         product_config_wizard = self._check_wizard_nxt_step()
-        product_config_wizard.fields_view_get()
+        product_config_wizard.get_view()
         product_config_wizard.with_context(
             wizard_id=product_config_wizard.id
-        ).fields_view_get()
+        ).get_view()
         # custom value
         # custom value
         self.attr_line_fuel.custom = True
@@ -408,7 +408,7 @@ class ConfigurationWizard(ProductConfiguratorTestCases):
         product_config_wizard_1.action_next_step()
         product_config_wizard_1.with_context(
             wizard_id=product_config_wizard_1.id
-        ).fields_view_get()
+        ).get_view()
 
     def test_14_unlink(self):
         product_config_wizard = self._check_wizard_nxt_step()
