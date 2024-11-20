@@ -135,7 +135,6 @@ class ProductConfigurator(models.TransientModel):
 
     def get_onchange_domains(
         self,
-        values,
         cfg_val_ids,
         product_tmpl_id=False,
         config_session_id=False,
@@ -161,8 +160,6 @@ class ProductConfigurator(models.TransientModel):
         for line in product_tmpl_id.attribute_line_ids.sorted():
             field_name = field_prefix + str(line.attribute_id.id)
 
-            if field_name not in values:
-                continue
             # get available values
             attribute_line_values = line._configurator_value_ids()
             avail_ids = config_session_id.values_available(
@@ -251,6 +248,8 @@ class ProductConfigurator(models.TransientModel):
                     elif sub_value[0] == Command.LINK:
                         if sub_value[1] not in available_val_ids_m2m:
                             available_val_ids_m2m.append(sub_value[1])
+                    elif sub_value[0] == Command.SET:
+                        available_val_ids_m2m = sub_value[2]
 
                 # Update dynamic fields and set `vals` with modified multi-value IDs
                 dynamic_fields.update({k: available_val_ids_m2m})
@@ -351,7 +350,10 @@ class ProductConfigurator(models.TransientModel):
             if not v:
                 continue
             if isinstance(v, list):
-                view_val_ids |= {a[1] for a in v}
+                if v[0][0] == Command.SET:
+                    view_val_ids |= set(v[0][2])
+                else:
+                    view_val_ids |= {a[1] for a in v}
             elif isinstance(v, int):
                 view_val_ids.add(v)
 
@@ -363,7 +365,7 @@ class ProductConfigurator(models.TransientModel):
         cfg_val_ids = cfg_vals.ids + list(view_val_ids)
 
         domains = self.get_onchange_domains(
-            field_onchange, cfg_val_ids, product_tmpl_id, config_session_id
+            cfg_val_ids, product_tmpl_id, config_session_id
         )
 
         vals = self.get_form_vals(

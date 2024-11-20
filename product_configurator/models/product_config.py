@@ -600,7 +600,7 @@ class ProductConfigSession(models.Model):
         # Process each `field_vals` operation for the current attribute
         for field_vals in vals.get(field_name, []):
             if field_vals and field_vals[0] == Command.SET:
-                final_val = list(set(final_val + (field_vals[2] or [])))
+                final_val = list(set(field_vals[2] or []))
             elif field_vals and field_vals[0] == Command.LINK:
                 if field_vals[1] not in final_val:
                     final_val.append(field_vals[1])

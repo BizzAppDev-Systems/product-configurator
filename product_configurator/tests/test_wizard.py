@@ -203,17 +203,6 @@ class ConfigurationWizard(ProductConfiguratorTestCases):
 
     def test_07_get_onchange_domains(self):
         product_config_wizard = self._check_wizard_nxt_step()
-        conf = [
-            "gasoline",
-            "228i",
-            "model_luxury_line",
-            "silver",
-            "rims_384",
-            "tapistry_black",
-            "steptronic",
-            "smoker_package",
-            "tow_hook",
-        ]
         values = [
             "gasoline",
             "228i",
@@ -225,7 +214,7 @@ class ConfigurationWizard(ProductConfiguratorTestCases):
             "smoker_package",
             "tow_hook",
         ]
-        product_config_wizard.get_onchange_domains(values, conf)
+        product_config_wizard.get_onchange_domains(values)
 
     def test_08_onchange_state(self):
         product_config_wizard = self._check_wizard_nxt_step()
@@ -579,17 +568,10 @@ class ConfigurationWizard(ProductConfiguratorTestCases):
             }
         )
         field_prefix = self.wizard._prefixes.get("field_prefix")
-        check_available_val_id = {
-            field_prefix
-            + "%s" % (self.value_gasoline.attribute_id.id): self.value_gasoline.id,
-            field_prefix + "%s" % (self.value_218i.attribute_id.id): self.value_218i.id,
-            field_prefix
-            + "%s" % (self.value_sport_line.attribute_id.id): self.value_sport_line.id,
-        }
         values_ids = self.value_diesel.ids
         product_tmpl_id = self.config_product
         domains_available = self.wizard.get_onchange_domains(
-            check_available_val_id, values_ids, product_tmpl_id, session_id
+            values_ids, product_tmpl_id, session_id
         )
         rec = domains_available[
             field_prefix + str(self.value_sport_line.attribute_id.id)
