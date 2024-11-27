@@ -17,11 +17,11 @@ TODO: add repo description.
 
 [//]: # (addons)
 
-Unported addons
----------------
+Available addons
+----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[product_configurator](product_configurator/) | 16.0.1.1.1 (unported) | [![PCatinean](https://github.com/PCatinean.png?size=30px)](https://github.com/PCatinean) | Base for product configuration interface modules
+[product_configurator](product_configurator/) | 17.0.1.0.0 | [![PCatinean](https://github.com/PCatinean.png?size=30px)](https://github.com/PCatinean) | Base for product configuration interface modules
 
 [//]: # (end addons)
 
