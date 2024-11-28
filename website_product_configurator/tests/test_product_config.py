@@ -80,7 +80,6 @@ class TestProductConfig(TestProductConfiguratorValues):
                 "write_date": fields.Datetime.now(),
             }
         )
-
         session_id.remove_inactive_config_sessions()
         sessions_to_remove = self.productConfigSession.search(
             [

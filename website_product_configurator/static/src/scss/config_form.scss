@@ -62,22 +62,16 @@
         opacity: 90%;
     }
     .config_attribute input[type="radio"]:checked + .image_config_attr_value_radio {
-        -webkit-filter: none;
-        -moz-filter: none;
         filter: none;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .config_attribute input[type="checkbox"]:checked + .image_config_attr_value_radio {
-        -webkit-filter: none;
-        -moz-filter: none;
         filter: none;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .config_attribute input[type="radio"][disabled] + .image_config_attr_value_radio {
-        -webkit-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
-        -moz-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
         filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
         border: none;
         border-radius: none;
@@ -89,8 +83,6 @@
     .config_attribute
         input[type="checkbox"][disabled]
         + .image_config_attr_value_radio {
-        -webkit-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
-        -moz-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
         filter: brightness(90%) contrast(110%) grayscale(50%) opacity(50%);
         border: none;
         border-radius: none;
@@ -106,16 +98,10 @@
         display: inline-block;
         width: 160px;
         height: 160px;
-        -webkit-transition: all 100ms ease-in;
-        -moz-transition: all 100ms ease-in;
         transition: all 100ms ease-in;
-        -webkit-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(90%);
-        -moz-filter: brightness(90%) contrast(110%) grayscale(50%) opacity(90%);
         filter: brightness(90%) contrast(110%) grayscale(50%) opacity(90%);
     }
     .image_config_attr_value_radio[enabled="True"]:hover {
-        -webkit-filter: none;
-        -moz-filter: none;
         filter: none;
         border: solid silver 1px;
         border-radius: 5px;
