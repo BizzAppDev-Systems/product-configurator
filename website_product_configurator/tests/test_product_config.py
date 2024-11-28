@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from odoo import fields
 
-from ..tests.test_website_product_configurator_values import (
+from ..tests.common import (
     TestProductConfiguratorValues,
 )
 

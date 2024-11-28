@@ -1,12 +1,11 @@
-from ..tests.test_website_product_configurator_values import (
+from ..tests.common import (
     TestProductConfiguratorValues,
 )
 
 
 class TestSaleOrder(TestProductConfiguratorValues):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
+    def setUp(cls):
+        super().setUp()
         cls.partner = cls.env.ref("base.res_partner_1")
         cls.product = cls.env["product.product"].create({"name": "test product"})
         cls.product_uom_unit = cls.env.ref("uom.product_uom_unit")
