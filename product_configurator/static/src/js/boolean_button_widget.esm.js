@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/* @odoo-module */
 import {BooleanField, booleanField} from "@web/views/fields/boolean/boolean_field";
 import {onMounted, onRendered, useRef} from "@odoo/owl";
 import {registry} from "@web/core/registry";
