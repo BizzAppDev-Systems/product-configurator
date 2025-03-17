@@ -1,7 +1,7 @@
 # Copyright (C) 2021 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools.safe_eval import safe_eval
 
@@ -77,10 +77,11 @@ class ProductConfiguratorMrp(models.TransientModel):
                 self.env["product.product"].browse(res["res_id"]).display_name
             )
             raise ValidationError(
-                _(
+                self.env._(
                     "There is no BOM associated with selected product. "
-                    "Please inform the administrator/manager. [Product: {}]"
-                ).format(product_name)
+                    "Please inform the administrator/manager. [Product: %s]"
+                )
+                % product_name
             )
 
         if self.order_id:
