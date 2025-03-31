@@ -1,6 +1,6 @@
 {
     "name": "Website Product Configurator",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "summary": """Configure products in e-shop""",
     "author": "Pledra, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -10,6 +10,7 @@
         "website_sale",
         "product_configurator",
         "product_configurator_sale",
+        "website_sale_product_configurator",
     ],
     "data": [
         "security/configurator_security.xml",
